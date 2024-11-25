@@ -11,7 +11,7 @@ const Logo = () => {
       alt="logo"
       className="hidden cursor-pointer md:block -ml-5"
       height={90}
-      width={150}
+      width={120}
       src="/images/cavitenest.png"
     />
   );

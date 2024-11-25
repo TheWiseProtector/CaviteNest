@@ -1,5 +1,5 @@
 import Container from "../components/Container";
-import Heading from "../components/Heading";
+import Heading from "../favorites/Heading";
 import ListingCard from "../components/listing/ListingCard";
 import { SafeListing, SafeUser } from "../types";
 

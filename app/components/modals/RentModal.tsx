@@ -57,6 +57,7 @@ const RentModal: React.FC<RentModalProps> = ({ user }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [existingListings, setExistingListings] = useState(0); // State to store the number of existing listings
   const [allowSecurityDeposit, setAllowSecurityDeposit] = useState(false);
+  const [images, setImages] = useState<string[]>([]);
 
   const {
     register,
@@ -73,7 +74,7 @@ const RentModal: React.FC<RentModalProps> = ({ user }) => {
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
-      imageSrc: "",
+      imageSrc: [],
       rentalPrice: "",
       bookingPrice: "",
       title: "",
@@ -109,7 +110,7 @@ const RentModal: React.FC<RentModalProps> = ({ user }) => {
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
-      imageSrc: "",
+      imageSrc: [],
       rentalPrice: "",
       bookingPrice: "",
       title: "",
@@ -143,6 +144,11 @@ const RentModal: React.FC<RentModalProps> = ({ user }) => {
       shouldTouch: true,
       shouldValidate: true,
     });
+  };
+
+  const handleImageUpload = (newImages: string[]) => {
+    setImages((prevImages) => [...prevImages, ...newImages]);
+    console.log("Uploaded images:", [...images, ...newImages]);
   };
 
   // Fetch existing listings and set the limit based on the user's subscription plan
@@ -411,9 +417,14 @@ const RentModal: React.FC<RentModalProps> = ({ user }) => {
               title="Upload images of your property"
               subTitle="Showcase your place"
             />
+            {/* ImageUpload Component */}
             <ImageUpload
-              onChange={(value) => setCustomValue("imageSrc", value)}
-              value={imageSrc}
+              onImageUpload={(newImages) => {
+                // Update images in local state and the form
+                setImages((prevImages) => [...prevImages, ...newImages]);
+                setCustomValue("imageSrc", [...images, ...newImages]);
+                console.log("Uploaded images:", [...images, ...newImages]);
+              }}
             />
           </div>
         );

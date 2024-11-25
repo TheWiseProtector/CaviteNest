@@ -33,7 +33,7 @@ interface ListingReservationProps {
   paymentMethod: string;
   listingId: string;
   listingOwner: string;
-  listingImg: string;
+  listingImg: string[];
   currentUser: string | null;
 }
 
@@ -314,8 +314,9 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
             </div>
             <hr className="mt-4 mb-4" />
             <p className="text-neutral-600 text-justify">
-              Click the <strong>&quot;Inquire&quot;</strong> button below to see the full
-              details of the property and the agreement set by the owner!
+              Click the <strong>&quot;Inquire&quot;</strong> button below to see
+              the full details of the property and the agreement set by the
+              owner!
             </p>
             <br></br>
             <Button

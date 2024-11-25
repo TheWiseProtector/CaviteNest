@@ -15,7 +15,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div className="fixed z-30 w-full bg-white shadow-sm">
-      <div className="-p-4 border-b-[1px]">
+      <div className="py-4 md:py-1 border-b-[1px]">
         <Container>
           <div className="flex flex-row items-center">
             {/* Left section with Logo and Search */}
